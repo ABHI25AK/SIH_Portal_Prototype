@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry / CSR Dashboard | Societal Innovation Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { brand: { dark: '#0f293e', primary: '#174261', accent: '#f5b027', light: '#f1f5f9' } } },
+                fontFamily: { sans: ['Inter', 'sans-serif'] }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-light font-sans flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-900 text-white flex flex-col hidden md:flex border-r border-slate-800">
+        <div class="p-6 flex items-center space-x-3 border-b border-slate-800">
+            <i class="fa-solid fa-industry text-brand-accent text-2xl"></i>
+            <div>
+                <h2 class="font-bold leading-tight">CSR Portal</h2>
+                <p class="text-xs text-slate-400">Tata Steel Foundation</p>
+            </div>
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="#" class="flex items-center space-x-3 bg-slate-800 p-3 rounded-lg text-white font-medium"><i class="fa-solid fa-chart-line w-5"></i><span>Portfolio Overview</span></a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition"><i class="fa-solid fa-magnifying-glass-chart w-5"></i><span>Screened Proposals</span><span class="bg-brand-accent text-brand-dark text-xs font-bold px-2 py-0.5 rounded-full ml-auto">5</span></a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition"><i class="fa-solid fa-bars-progress w-5"></i><span>Milestone Tracking</span></a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition"><i class="fa-solid fa-file-contract w-5"></i><span>Compliance & Audit</span></a>
+        </nav>
+        <div class="p-4 border-t border-slate-800">
+            <a href="login.html" class="flex items-center space-x-3 p-2 text-slate-500 hover:text-white transition"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <!-- Topbar -->
+        <header class="bg-white shadow-sm p-4 flex justify-between items-center z-10 sticky top-0">
+            <div class="flex items-center md:hidden">
+                <i class="fa-solid fa-bars text-xl text-slate-600"></i>
+            </div>
+            <h1 class="text-xl font-bold text-slate-800 hidden md:block">CSR Funding & Impact Dashboard</h1>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-slate-200 rounded-full text-slate-600 flex items-center justify-center font-bold text-sm"><i class="fa-regular fa-building"></i></div>
+                    <span class="text-sm font-medium text-slate-700 hidden sm:block">Corporate Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-6 md:p-8 space-y-6 flex-1">
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="text-sm text-slate-500 font-medium mb-1">Total CSR Disbursed</p>
+                    <h4 class="text-2xl font-bold text-slate-800">₹1.2 Cr</h4>
+                    <p class="text-xs text-green-600 mt-2"><i class="fa-solid fa-arrow-up"></i> 12% vs last year</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="text-sm text-slate-500 font-medium mb-1">Active Projects</p>
+                    <h4 class="text-2xl font-bold text-slate-800">8</h4>
+                    <p class="text-xs text-slate-500 mt-2">Across 3 domains</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="text-sm text-slate-500 font-medium mb-1">Citizens Impacted</p>
+                    <h4 class="text-2xl font-bold text-slate-800">4,500+</h4>
+                    <p class="text-xs text-slate-500 mt-2">Verified sign-offs</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="text-sm text-slate-500 font-medium mb-1">Audit Status</p>
+                    <h4 class="text-xl font-bold text-green-600 mt-1"><i class="fa-solid fa-check-circle mr-1"></i> Sec 135 Compliant</h4>
+                    <p class="text-xs text-slate-500 mt-2">All milestones tracked</p>
+                </div>
+            </div>
+
+            <!-- Milestone Tracking Grid -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800">Milestone-Tracked CSR Spend</h3>
+                    <button class="bg-brand-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-brand-dark transition">View All Proposals</button>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Project 1 -->
+                    <div class="border border-slate-200 rounded-lg p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Solar Mini-Grid Repair & Automation</h4>
+                                <p class="text-sm text-slate-500">HEI Partner: IIT-ISM Dhanbad • Location: Gumla District</p>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Phase 2: Prototyping</span>
+                        </div>
+                        
+                        <!-- Progress Bar (Milestones) -->
+                        <div class="relative pt-1">
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-slate-200">
+                                <div style="width: 50%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                            </div>
+                            <div class="flex justify-between text-xs text-slate-500 font-medium">
+                                <div class="text-green-600"><i class="fa-solid fa-check-circle"></i> Design Approved (₹2L)</div>
+                                <div class="text-blue-600 font-bold"><i class="fa-solid fa-spinner fa-spin"></i> Prototype (₹5L - Pending)</div>
+                                <div>Field Testing (₹3L)</div>
+                                <div>Citizen Sign-off</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 flex justify-end">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-bold shadow-sm hover:bg-green-600">Approve Phase 2 Funds</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+</body>
+</html>

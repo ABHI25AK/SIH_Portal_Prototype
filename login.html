@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Societal Innovation Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gov: { 
+                            dark: '#1F2937',     /* Dark Slate/Charcoal */
+                            primary: '#2563EB',  /* True Indigo */
+                            royal: '#1E3A8A',    /* Royal Blue */
+                            bg: '#FFFFFF',       /* Pure White Background */
+                            panel: '#F8F9FA',    /* Off-White Pane */
+                            card: '#F3F4F6',     /* Faint Gray Cards */
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); 
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; }
+        
+        /* Modern Flat Themes for Stakeholders (Accessible & Clean) */
+        .theme-red { color: #DC2626; border-color: #DC2626; }
+        .theme-red-bg { background-color: #DC2626; color: #FFFFFF; }
+        .theme-red-bg:hover { background-color: #B91C1C; }
+
+        .theme-orange { color: #EA580C; border-color: #EA580C; }
+        .theme-orange-bg { background-color: #EA580C; color: #FFFFFF; }
+        .theme-orange-bg:hover { background-color: #C2410C; }
+
+        .theme-emerald { color: #059669; border-color: #059669; }
+        .theme-emerald-bg { background-color: #059669; color: #FFFFFF; }
+        .theme-emerald-bg:hover { background-color: #047857; }
+
+        .theme-teal { color: #0D9488; border-color: #0D9488; }
+        .theme-teal-bg { background-color: #0D9488; color: #FFFFFF; }
+        .theme-teal-bg:hover { background-color: #0F766E; }
+    </style>
+</head>
+<body class="text-gov-dark h-screen flex">
+    
+    <!-- Left Info Pane (Royal Blue Gov Theme) -->
+    <div class="hidden lg:flex lg:w-1/2 bg-gov-royal flex-col justify-between p-12 text-white shadow-2xl z-10">
+        <div>
+            <div class="flex items-center space-x-3 mb-16">
+                <i class="fa-solid fa-seedling text-white text-3xl"></i>
+                <h1 class="font-bold text-2xl leading-tight">Societal Innovation Portal<br><span class="text-sm text-blue-200 font-normal">Govt. of Jharkhand</span></h1>
+            </div>
+            <h2 class="text-4xl font-bold mb-6 leading-tight">Empowering Jharkhand through Collaboration.</h2>
+            <p class="text-lg text-blue-100 mb-8 max-w-lg">Access your dedicated workspace to report issues, review AI-triaged problems, fund milestones, or monitor state-wide resolutions.</p>
+            
+            <div class="space-y-4">
+                <div class="flex items-center text-white"><i class="fa-solid fa-check-circle text-blue-300 mr-3"></i> 31k+ Villages Covered (4G)</div>
+                <div class="flex items-center text-white"><i class="fa-solid fa-check-circle text-blue-300 mr-3"></i> NEP 2020 Credit Integration</div>
+                <div class="flex items-center text-white"><i class="fa-solid fa-check-circle text-blue-300 mr-3"></i> Section 135 CSR Compliance</div>
+            </div>
+        </div>
+        <div class="text-sm text-blue-200">
+            &copy; 2026 SIH Project PS 26043. All rights reserved.
+        </div>
+    </div>
+
+    <!-- Right Login Pane (Clean Light Mode) -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gov-panel relative">
+        <div class="w-full max-w-md z-10">
+            
+            <div class="lg:hidden flex items-center space-x-3 mb-8 justify-center">
+                <i class="fa-solid fa-seedling text-gov-royal text-3xl"></i>
+                <h1 class="font-bold text-xl text-gov-royal leading-tight">Societal Innovation Portal</h1>
+            </div>
+
+            <!-- STEP 1: ROLE SELECTION -->
+            <div id="role-selection">
+                <h3 class="text-3xl font-bold text-gov-dark mb-2">Welcome</h3>
+                <p class="text-gray-500 mb-8">Select your stakeholder role to continue.</p>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Government (Red Accent) -->
+                    <button onclick="selectRole('gov')" class="bg-gov-card border border-transparent rounded-xl p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-md hover:border-red-500 transition-all group">
+                        <i class="fa-solid fa-building-columns text-3xl mb-3 text-gov-dark group-hover:theme-red transition-colors"></i>
+                        <span class="font-semibold text-gov-dark group-hover:theme-red transition-colors">Government</span>
+                    </button>
+                    <!-- University (Orange Accent) -->
+                    <button onclick="selectRole('univ')" class="bg-gov-card border border-transparent rounded-xl p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-md hover:border-orange-500 transition-all group">
+                        <i class="fa-solid fa-university text-3xl mb-3 text-gov-dark group-hover:theme-orange transition-colors"></i>
+                        <span class="font-semibold text-gov-dark group-hover:theme-orange transition-colors">University</span>
+                    </button>
+                    <!-- Industry (Green Accent) -->
+                    <button onclick="selectRole('ind')" class="bg-gov-card border border-transparent rounded-xl p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-md hover:border-emerald-500 transition-all group">
+                        <i class="fa-solid fa-industry text-3xl mb-3 text-gov-dark group-hover:theme-emerald transition-colors"></i>
+                        <span class="font-semibold text-gov-dark group-hover:theme-emerald transition-colors">Industry / CSR</span>
+                    </button>
+                    <!-- Citizen (Teal Accent) -->
+                    <button onclick="selectRole('cit')" class="bg-gov-card border border-transparent rounded-xl p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-md hover:border-teal-500 transition-all group">
+                        <i class="fa-solid fa-users text-3xl mb-3 text-gov-dark group-hover:theme-teal transition-colors"></i>
+                        <span class="font-semibold text-gov-dark group-hover:theme-teal transition-colors">Citizen</span>
+                    </button>
+                </div>
+                <div class="mt-8 text-center text-sm">
+                    <a href="portal_frontend.html" class="font-medium text-gov-primary hover:underline transition">← Return to Homepage</a>
+                </div>
+            </div>
+
+            <!-- STEP 2: AUTH FORM -->
+            <div id="auth-section" class="hidden bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <button onclick="goBack()" class="text-gray-500 hover:text-gov-dark mb-6 flex items-center text-sm transition">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Roles
+                </button>
+                
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-gov-dark">Authenticate</h3>
+                    <p class="text-gray-500 mt-1">Continuing as: <span id="auth-role-name" class="font-semibold">Role</span></p>
+                </div>
+
+                <!-- Tabs: Login / Register -->
+                <div class="flex space-x-6 mb-6 border-b border-gray-200">
+                    <div id="tab-login" onclick="setMode('login')" class="pb-2 cursor-pointer font-bold border-b-2 text-gov-dark transition">Login</div>
+                    <div id="tab-register" onclick="setMode('register')" class="pb-2 cursor-pointer font-medium border-b-2 border-transparent text-gray-400 hover:text-gray-600 transition">Register</div>
+                </div>
+
+                <form onsubmit="handleSubmit(event)">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gov-dark mb-2">Email or Phone Number</label>
+                        <input type="text" id="credential-input" class="w-full border border-gray-300 rounded-md p-3 bg-white text-gov-dark focus:outline-none focus:ring-2 focus:ring-gov-primary focus:border-transparent transition" placeholder="Enter credential" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gov-dark mb-2">Password</label>
+                        <input type="password" id="password-input" class="w-full border border-gray-300 rounded-md p-3 bg-white text-gov-dark focus:outline-none focus:ring-2 focus:ring-gov-primary focus:border-transparent transition" placeholder="••••••••" required>
+                    </div>
+                    
+                    <!-- Only visible when Register is selected -->
+                    <div id="confirm-pwd-div" class="mb-6 hidden">
+                        <label class="block text-sm font-medium text-gov-dark mb-2">Confirm Password</label>
+                        <input type="password" class="w-full border border-gray-300 rounded-md p-3 bg-white text-gov-dark focus:outline-none focus:ring-2 focus:ring-gov-primary focus:border-transparent transition" placeholder="••••••••">
+                    </div>
+
+                    <button id="submit-btn" type="submit" class="w-full font-bold py-3 rounded-md shadow-sm transition text-lg mt-4">
+                        Sign In
+                    </button>
+                </form>
+
+                <!-- Demo Credentials Box -->
+                <div class="mt-8 p-4 rounded-lg bg-gov-card border border-gray-200">
+                    <div class="text-[10px] text-gray-500 uppercase tracking-wider font-bold mb-3 flex items-center">
+                        <i class="fa-solid fa-circle-info mr-2 text-gov-primary"></i> Demo Credentials (Prototype Use Only)
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center bg-white p-2.5 rounded border border-gray-200 cursor-pointer hover:border-gray-400 shadow-sm transition" onclick="fillMock(1)">
+                            <div class="flex items-center"><i class="fa-regular fa-copy text-gray-400 mr-2 text-xs"></i> <span id="mock1" class="font-mono text-xs text-gov-dark font-medium"></span></div>
+                            <span class="text-gray-400 text-[10px] font-mono">pw: demo123</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white p-2.5 rounded border border-gray-200 cursor-pointer hover:border-gray-400 shadow-sm transition" onclick="fillMock(2)">
+                            <div class="flex items-center"><i class="fa-regular fa-copy text-gray-400 mr-2 text-xs"></i> <span id="mock2" class="font-mono text-xs text-gov-dark font-medium"></span></div>
+                            <span class="text-gray-400 text-[10px] font-mono">pw: demo123</span>
+                        </div>
+                        <p class="text-[10px] text-gray-400 text-center mt-2 pt-1 italic">Click a credential to auto-fill</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script>
+        const roles = {
+            'gov': { name: 'Government Admin', theme: 'theme-red', bg: 'theme-red-bg', dest: 'dashboard_government.html',
+                     mocks: ['admin1@jharkhand.gov.in', 'dc_ranchi@jharkhand.gov.in'] },
+            'univ': { name: 'University Portal', theme: 'theme-orange', bg: 'theme-orange-bg', dest: 'dashboard_university.html',
+                      mocks: ['hod_mech@bitmesra.ac.in', 'innovation_cell@iitism.ac.in'] },
+            'ind': { name: 'CSR Funding Desk', theme: 'theme-emerald', bg: 'theme-emerald-bg', dest: 'dashboard_csr.html',
+                     mocks: ['csr_head@tatasteel.com', 'rural_impact@tcs.com'] },
+            'cit': { name: 'Citizen Access', theme: 'theme-teal', bg: 'theme-teal-bg', dest: 'portal_frontend.html',
+                     mocks: ['9876543210', '9123456780'] }
+        };
+
+        let currentRole = '';
+        let currentMode = 'login'; 
+
+        function selectRole(roleId) {
+            currentRole = roleId;
+            document.getElementById('role-selection').classList.add('hidden');
+            document.getElementById('auth-section').classList.remove('hidden');
+            
+            const roleData = roles[roleId];
+            const roleNameEl = document.getElementById('auth-role-name');
+            roleNameEl.innerText = roleData.name;
+            roleNameEl.className = `ml-1 font-bold ${roleData.theme}`;
+            
+            document.getElementById('submit-btn').className = `w-full font-bold py-3 rounded-md shadow-sm transition text-lg mt-4 ${roleData.bg}`;
+            
+            // Set dynamic active tab color
+            document.getElementById('tab-login').classList.add(roleData.theme);
+            
+            document.getElementById('mock1').innerText = roleData.mocks[0];
+            document.getElementById('mock2').innerText = roleData.mocks[1];
+            
+            // Clear fields when switching roles
+            document.getElementById('credential-input').value = '';
+            document.getElementById('password-input').value = '';
+            
+            setMode('login');
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            const roleData = roles[currentRole];
+            const themeClass = roleData ? roleData.theme : 'text-gov-dark';
+            
+            if(mode === 'login') {
+                document.getElementById('tab-login').className = `pb-2 cursor-pointer font-bold border-b-2 transition ${themeClass}`;
+                document.getElementById('tab-register').className = 'pb-2 cursor-pointer font-medium border-b-2 border-transparent text-gray-400 hover:text-gray-600 transition';
+                document.getElementById('submit-btn').innerText = 'Secure Sign In';
+                document.getElementById('confirm-pwd-div').classList.add('hidden');
+            } else {
+                document.getElementById('tab-register').className = `pb-2 cursor-pointer font-bold border-b-2 transition ${themeClass}`;
+                document.getElementById('tab-login').className = 'pb-2 cursor-pointer font-medium border-b-2 border-transparent text-gray-400 hover:text-gray-600 transition';
+                document.getElementById('submit-btn').innerText = 'Create Account';
+                document.getElementById('confirm-pwd-div').classList.remove('hidden');
+            }
+        }
+
+        function fillMock(index) {
+            const mockVal = document.getElementById(`mock${index}`).innerText;
+            document.getElementById('credential-input').value = mockVal;
+            document.getElementById('password-input').value = 'demo123';
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            if(currentMode === 'login') {
+                window.location.href = roles[currentRole].dest;
+            } else {
+                alert('Registration successful! Logging you into your new ' + roles[currentRole].name + ' account...');
+                window.location.href = roles[currentRole].dest;
+            }
+        }
+        
+        function goBack() {
+            const roleData = roles[currentRole];
+            if(roleData) {
+                document.getElementById('tab-login').classList.remove(roleData.theme);
+                document.getElementById('tab-register').classList.remove(roleData.theme);
+            }
+            document.getElementById('auth-section').classList.add('hidden');
+            document.getElementById('role-selection').classList.remove('hidden');
+            document.getElementById('credential-input').value = '';
+            document.getElementById('password-input').value = '';
+        }
+    </script>
+</body>
+</html>

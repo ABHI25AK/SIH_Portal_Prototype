@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Dashboard | Societal Innovation Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { brand: { dark: '#0f293e', primary: '#174261', accent: '#f5b027', light: '#f1f5f9' } } },
+                fontFamily: { sans: ['Inter', 'sans-serif'] }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white text-slate-800 border-r border-slate-200 flex flex-col hidden md:flex">
+        <div class="p-6 flex items-center space-x-3 border-b border-slate-200 bg-brand-light">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Government_of_Jharkhand_Logo.png/120px-Government_of_Jharkhand_Logo.png" alt="Govt Logo" class="w-8 h-8 object-contain">
+            <div>
+                <h2 class="font-bold text-sm leading-tight text-brand-dark">Govt. of Jharkhand</h2>
+                <p class="text-xs text-slate-500">State Admin Portal</p>
+            </div>
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="#" class="flex items-center space-x-3 bg-brand-primary p-3 rounded-lg text-white font-medium"><i class="fa-solid fa-map-location-dot w-5"></i><span>24-District View</span></a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-slate-600 hover:bg-slate-100 transition"><i class="fa-solid fa-building-columns w-5"></i><span>HEI / NEP Metrics</span></a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-slate-600 hover:bg-slate-100 transition"><i class="fa-solid fa-industry w-5"></i><span>CSR Fund Tracking</span></a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-slate-600 hover:bg-slate-100 transition"><i class="fa-solid fa-layer-group w-5"></i><span>Cross-Dept Domains</span></a>
+        </nav>
+        <div class="p-4 border-t border-slate-200 bg-slate-50">
+            <a href="login.html" class="flex items-center space-x-3 p-2 text-slate-500 hover:text-red-600 transition"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Secure Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <!-- Topbar -->
+        <header class="bg-white shadow-sm p-4 flex justify-between items-center z-10 sticky top-0">
+            <div class="flex items-center md:hidden">
+                <i class="fa-solid fa-bars text-xl text-slate-600"></i>
+            </div>
+            <h1 class="text-xl font-bold text-brand-dark hidden md:block">Real-Time State Analytics</h1>
+            <div class="flex items-center space-x-4">
+                <button class="bg-brand-light px-3 py-1.5 rounded text-sm text-brand-dark border border-slate-300 font-medium">Export Report</button>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-6 md:p-8 space-y-6 flex-1">
+            
+            <!-- Global Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-blue-500">
+                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Total Issues Reported</p>
+                    <h4 class="text-2xl font-black text-slate-800">12,450</h4>
+                    <p class="text-xs text-slate-400 mt-1">Via App, Web & Voice IVR</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-green-500">
+                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Overall Resolution Rate</p>
+                    <h4 class="text-2xl font-black text-slate-800">68.4%</h4>
+                    <p class="text-xs text-green-600 mt-1 font-medium"><i class="fa-solid fa-arrow-up"></i> 4.2% this month</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-purple-500">
+                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Total CSR Deployed</p>
+                    <h4 class="text-2xl font-black text-slate-800">₹4.2 Cr</h4>
+                    <p class="text-xs text-slate-400 mt-1">Transparently tracked</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-brand-accent">
+                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Avg Time-to-Response</p>
+                    <h4 class="text-2xl font-black text-slate-800">< 48 hrs</h4>
+                    <p class="text-xs text-slate-400 mt-1">Target achieved</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Domain-wise breakdown -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Cross-Department View (Top 5 Domains)</h3>
+                    <div class="space-y-4">
+                        <!-- Bar 1 -->
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">Water Resources</span>
+                                <span class="text-slate-500">3,200 issues</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <!-- Bar 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">Agriculture</span>
+                                <span class="text-slate-500">2,840 issues</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <!-- Bar 3 -->
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">Healthcare</span>
+                                <span class="text-slate-500">2,100 issues</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div class="bg-red-500 h-2.5 rounded-full" style="width: 55%"></div>
+                            </div>
+                        </div>
+                        <!-- Bar 4 -->
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">Education</span>
+                                <span class="text-slate-500">1,950 issues</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Pipeline Status -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Pipeline Distribution</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center text-sm"><i class="fa-solid fa-robot text-slate-400 w-6"></i> AI Triage (Pending)</div>
+                            <span class="font-bold text-slate-700">12%</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center text-sm"><i class="fa-solid fa-university text-brand-primary w-6"></i> University Matched</div>
+                            <span class="font-bold text-slate-700">28%</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center text-sm"><i class="fa-solid fa-industry text-purple-600 w-6"></i> CSR Co-Funded</div>
+                            <span class="font-bold text-slate-700">15%</span>
+                        </li>
+                        <li class="flex items-center justify-between border-t pt-3 mt-1">
+                            <div class="flex items-center text-sm font-bold text-green-600"><i class="fa-solid fa-circle-check w-6"></i> Verified Deployed</div>
+                            <span class="font-bold text-green-600">45%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+</body>
+</html>

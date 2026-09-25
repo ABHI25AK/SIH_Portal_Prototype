@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Societal Innovation Collaboration Portal | Govt of Jharkhand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#064E3B',    /* Deep Forest Green */
+                            primary: '#047857', /* Emerald Green */
+                            accent: '#AAFF00',  /* Bright Green (#AAFF00) */
+                            light: '#F0FDF4'    /* Light Mint/Off-white */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Step Arrow for Pipeline */
+        @media (min-width: 768px) {
+            .step-item:not(:last-child)::after {
+                content: '\f061';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                right: -1.5rem;
+                top: 25%;
+                transform: translateY(-50%);
+                color: #94a3b8;
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-brand-dark text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-seedling text-brand-accent text-2xl"></i>
+                    <div>
+                        <h1 class="font-bold text-lg leading-tight">Societal Innovation Portal</h1>
+                        <p class="text-xs text-slate-300">Govt. of Jharkhand • SIH 2026</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#how-it-works" class="hover:text-brand-accent transition">How it Works</a>
+                    <a href="#report" class="border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-brand-dark px-3 py-1.5 rounded-md font-medium transition text-sm">Report Issue</a>
+                    <a href="#dashboard" class="hover:text-brand-accent transition">Live Dashboard</a>
+                    
+                    <!-- Language Selector -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-sm bg-brand-primary px-3 py-1.5 rounded-md border border-slate-600">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>English</span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <!-- 16 Languages from PPT -->
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block border border-slate-200">
+                            <ul class="py-1 text-sm text-slate-700 h-48 overflow-y-auto">
+                                <li class="px-4 py-2 hover:bg-slate-100 cursor-pointer">English</li>
+                                <li class="px-4 py-2 hover:bg-slate-100 cursor-pointer">Hindi</li>
+                                <li class="px-4 py-2 hover:bg-slate-100 cursor-pointer">Santhali</li>
+                                <li class="px-4 py-2 hover:bg-slate-100 cursor-pointer">Bengali</li>
+                                <li class="px-4 py-2 hover:bg-slate-100 cursor-pointer">Bhojpuri</li>
+                                <li class="px-4 py-2 hover:bg-slate-100 cursor-pointer">Nagpuri</li>
+                                <li class="px-4 py-2 text-xs text-slate-400 italic">+ 10 more regional</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="login.html" class="bg-brand-accent text-brand-dark px-4 py-2 rounded-md font-semibold hover:bg-yellow-400 transition block text-center">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-brand-primary text-white pt-16 pb-24 lg:pt-24 lg:pb-40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2">
+                    <span class="text-brand-accent font-semibold tracking-wider uppercase text-sm mb-2 block">One Connected Pipeline</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                        From a citizen's problem, to a verified, deployed solution.
+                    </h2>
+                    <p class="text-lg text-slate-300 mb-8 max-w-xl">
+                        A single digital thread connecting citizens across Jharkhand with AI triage, university matching, industry co-funding, and verified local deployment.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#report" class="bg-brand-accent text-brand-dark text-center px-6 py-3 rounded-md font-bold text-lg hover:bg-yellow-400 transition shadow-lg">
+                            <i class="fa-solid fa-bullhorn mr-2"></i> Report an Issue
+                        </a>
+                        <a href="dashboard_government.html" class="bg-transparent border border-white text-center px-6 py-3 rounded-md font-semibold text-lg hover:bg-white hover:text-brand-primary transition">
+                            View Live Dashboard
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats Cards (From PPT) -->
+                <div class="lg:w-5/12 mt-12 lg:mt-0 grid grid-cols-2 gap-4">
+                    <div class="bg-brand-dark bg-opacity-40 p-6 rounded-xl border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-white/20 transition duration-300">
+                        <i class="fa-solid fa-wifi text-brand-accent text-3xl mb-3"></i>
+                        <h4 class="text-2xl font-bold">31,546</h4>
+                        <p class="text-sm text-slate-300">Villages Covered (4G)</p>
+                    </div>
+                    <div class="bg-brand-dark bg-opacity-40 p-6 rounded-xl border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-white/20 transition duration-300">
+                        <i class="fa-solid fa-language text-brand-accent text-3xl mb-3"></i>
+                        <h4 class="text-2xl font-bold">16</h4>
+                        <p class="text-sm text-slate-300">Built-in Languages</p>
+                    </div>
+                    <div class="bg-brand-dark bg-opacity-40 p-6 rounded-xl border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-white/20 transition duration-300">
+                        <i class="fa-solid fa-building-columns text-brand-accent text-3xl mb-3"></i>
+                        <h4 class="text-2xl font-bold">NEP '20</h4>
+                        <p class="text-sm text-slate-300">Experiential Credits</p>
+                    </div>
+                    <div class="bg-brand-dark bg-opacity-40 p-6 rounded-xl border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-white/20 transition duration-300">
+                        <i class="fa-solid fa-handshake-angle text-brand-accent text-3xl mb-3"></i>
+                        <h4 class="text-2xl font-bold">Sec. 135</h4>
+                        <p class="text-sm text-slate-300">CSR Mandate Ready</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Wave Divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0">
+            <svg class="block w-full h-12 md:h-16 lg:h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- How The Platform Works (The Pipeline) -->
+    <section id="how-it-works" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-brand-dark">How the Platform Works</h3>
+                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">AI sorts every report into 10 categories. Duplicate reports merge automatically; new ones move down the pipeline.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start relative">
+                <!-- Step 1 -->
+                <div class="step-item relative flex flex-col items-center text-center w-full md:w-1/5 px-2 mb-8 md:mb-0">
+                    <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-4 shadow-sm border border-slate-200 text-brand-primary">
+                        <i class="fa-solid fa-mobile-screen-button text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">Report</h4>
+                    <p class="text-xs text-slate-500 mb-2">App/Web/Voice + photo, doc & GPS</p>
+                    <span class="text-[10px] font-bold text-brand-accent uppercase tracking-wide">Owner: Citizen</span>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-item relative flex flex-col items-center text-center w-full md:w-1/5 px-2 mb-8 md:mb-0">
+                    <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-4 shadow-sm border border-slate-200 text-brand-primary">
+                        <i class="fa-solid fa-robot text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">AI Triage</h4>
+                    <p class="text-xs text-slate-500 mb-2">Categorize & priority score</p>
+                    <span class="text-[10px] font-bold text-brand-accent uppercase tracking-wide">Owner: AI Engine</span>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-item relative flex flex-col items-center text-center w-full md:w-1/5 px-2 mb-8 md:mb-0">
+                    <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-4 shadow-sm border border-slate-200 text-brand-primary">
+                        <i class="fa-solid fa-university text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">University Match</h4>
+                    <p class="text-xs text-slate-500 mb-2">Multidisciplinary teams + mentors</p>
+                    <span class="text-[10px] font-bold text-brand-accent uppercase tracking-wide">Owner: HEI</span>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-item relative flex flex-col items-center text-center w-full md:w-1/5 px-2 mb-8 md:mb-0">
+                    <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-4 shadow-sm border border-slate-200 text-brand-primary">
+                        <i class="fa-solid fa-industry text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">Industry Co-Fund</h4>
+                    <p class="text-xs text-slate-500 mb-2">Industry, startups, MSMEs & CSR</p>
+                    <span class="text-[10px] font-bold text-brand-accent uppercase tracking-wide">Owner: Industry</span>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-item relative flex flex-col items-center text-center w-full md:w-1/5 px-2">
+                    <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-4 shadow-sm border border-slate-200 text-green-600">
+                        <i class="fa-solid fa-circle-check text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">Verified Deploy</h4>
+                    <p class="text-xs text-slate-500 mb-2">Sign-off closes the loop</p>
+                    <span class="text-[10px] font-bold text-green-600 uppercase tracking-wide">Owner: Citizen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reporting Section (Unified Channel) -->
+    <section id="report" class="py-16 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <!-- Info Side -->
+                <div class="lg:w-1/3">
+                    <div class="bg-brand-primary text-white p-8 rounded-xl shadow-lg h-full">
+                        <i class="fa-solid fa-phone-volume text-4xl text-brand-accent mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4">One Unified Reporting Channel</h3>
+                        <p class="mb-6 text-slate-200 text-sm leading-relaxed">
+                            Voice + Offline in one channel: no app or internet needed — call a toll-free number and leave a voicemail. Speech-to-text + GPS AI transcribes, tags and geo-locates it.
+                        </p>
+                        <ul class="space-y-4 text-sm font-medium">
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-accent mr-3"></i> Works on any basic feature phone</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-accent mr-3"></i> No literacy / app-download barrier</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-accent mr-3"></i> Accepts photo, video & document evidence</li>
+                        </ul>
+
+                        <div class="mt-10 p-4 border border-slate-500 rounded-lg bg-brand-dark bg-opacity-50 text-center">
+                            <p class="text-xs text-slate-400 mb-1">Toll-Free IVR (No Internet Required)</p>
+                            <p class="text-2xl font-bold text-brand-accent">Dial 1800-XXX-XXXX</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Form Side -->
+                <div class="lg:w-2/3">
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+                        <h3 class="text-2xl font-bold text-brand-dark mb-6">Submit an Issue (Web Portal)</h3>
+                        <form onsubmit="event.preventDefault(); alert('Issue Submitted to AI Triage pipeline!');">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">Category (1 of 10 Domains)</label>
+                                    <select class="w-full border border-slate-300 rounded-md p-3 focus:ring-brand-primary focus:border-brand-primary bg-slate-50">
+                                        <option>Auto-Detect via AI</option>
+                                        <option>Water Resources</option>
+                                        <option>Agriculture</option>
+                                        <option>Healthcare</option>
+                                        <option>Education</option>
+                                        <option>Environment</option>
+                                        <option>Energy</option>
+                                        <option>Urban Development</option>
+                                        <option>Accessibility</option>
+                                        <option>Public Administration</option>
+                                        <option>Rural Livelihoods</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">Location (GPS)</label>
+                                    <div class="flex">
+                                        <input type="text" placeholder="Fetching location..." class="w-full border border-slate-300 rounded-l-md p-3 focus:ring-brand-primary focus:border-brand-primary bg-slate-50" value="Ranchi, Jharkhand (23.3441, 85.3096)">
+                                        <button type="button" class="bg-slate-200 px-4 rounded-r-md border border-l-0 border-slate-300 hover:bg-slate-300">
+                                            <i class="fa-solid fa-location-crosshairs text-slate-600"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Describe the Problem (Or record voice)</label>
+                                <textarea rows="4" class="w-full border border-slate-300 rounded-md p-3 focus:ring-brand-primary focus:border-brand-primary bg-slate-50" placeholder="E.g., The primary school roof in our village is leaking and the handpump is broken..."></textarea>
+                                <div class="mt-2 flex justify-end">
+                                    <button type="button" class="flex items-center text-sm text-red-500 font-medium hover:text-red-700">
+                                        <i class="fa-solid fa-microphone mr-2"></i> Voice Type (Speech-to-Text)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mb-8">
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Attach Evidence (Photo/Video/Doc)</label>
+                                <div class="border-2 border-dashed border-slate-300 rounded-md p-6 text-center bg-slate-50 hover:bg-slate-100 transition cursor-pointer">
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-slate-400 mb-2"></i>
+                                    <p class="text-sm text-slate-600">Click to upload or drag and drop</p>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-primary text-white font-bold py-4 rounded-md shadow-md hover:bg-brand-dark transition text-lg">
+                                Submit to AI Triage Pipeline
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Created / Stakeholder Dashboard Preview -->
+    <section id="dashboard" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-8 border-b pb-4">
+                <div>
+                    <h3 class="text-3xl font-bold text-brand-dark">Live Platform Dashboard</h3>
+                    <p class="mt-2 text-slate-600">Cross-department single-window view for 24 districts.</p>
+                </div>
+                <!-- Stakeholder Tabs -->
+                <div class="hidden md:flex space-x-2 bg-slate-100 p-1 rounded-lg">
+                    <button class="px-4 py-2 bg-white shadow-sm rounded-md text-sm font-bold text-brand-primary">Government (View All)</button>
+                    <button class="px-4 py-2 text-slate-500 hover:text-brand-primary text-sm font-medium">Universities</button>
+                    <button class="px-4 py-2 text-slate-500 hover:text-brand-primary text-sm font-medium">Industry/CSR</button>
+                    <button class="px-4 py-2 text-slate-500 hover:text-brand-primary text-sm font-medium">Citizens</button>
+                </div>
+            </div>
+
+            <!-- Dashboard KPIs -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="border border-slate-200 p-4 rounded-lg bg-slate-50">
+                    <p class="text-xs text-slate-500 uppercase font-semibold mb-1">Resolution Rate</p>
+                    <p class="text-2xl font-bold text-brand-dark">68.4%</p>
+                </div>
+                <div class="border border-slate-200 p-4 rounded-lg bg-slate-50">
+                    <p class="text-xs text-slate-500 uppercase font-semibold mb-1">Avg Time-to-Response</p>
+                    <p class="text-2xl font-bold text-brand-dark">< 48 hrs</p>
+                </div>
+                <div class="border border-slate-200 p-4 rounded-lg bg-slate-50">
+                    <p class="text-xs text-slate-500 uppercase font-semibold mb-1">Active University Teams</p>
+                    <p class="text-2xl font-bold text-brand-dark">142</p>
+                </div>
+                <div class="border border-slate-200 p-4 rounded-lg bg-slate-50">
+                    <p class="text-xs text-slate-500 uppercase font-semibold mb-1">CSR Funds Deployed</p>
+                    <p class="text-2xl font-bold text-brand-dark">₹4.2 Cr</p>
+                </div>
+            </div>
+
+            <!-- Pipeline Feed Table -->
+            <div class="bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden flex flex-col">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-200">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Issue ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Problem Title</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Category</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Location</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Current Stage</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Owner</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200">
+                            <!-- Row 1 -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">#JHK-8892</td>
+                                <td class="px-6 py-4 text-sm font-medium text-brand-dark">Arsenic contamination in local wells</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Water Resources</span></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Sahibganj</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="h-2 w-2 rounded-full bg-yellow-400 mr-2"></div>
+                                        <span class="text-sm text-slate-700">Industry Co-Fund</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Tata Steel CSR</td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">#JHK-8891</td>
+                                <td class="px-6 py-4 text-sm font-medium text-brand-dark">No cold storage for tomato yield</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Agriculture</span></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Ranchi (Rural)</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="h-2 w-2 rounded-full bg-purple-400 mr-2"></div>
+                                        <span class="text-sm text-slate-700">University Match</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Birsa Ag. Univ.</td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">#JHK-8890</td>
+                                <td class="px-6 py-4 text-sm font-medium text-brand-dark">Solar mini-grid malfunction (Voice-call)</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800">Energy</span></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Gumla</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="h-2 w-2 rounded-full bg-blue-400 mr-2"></div>
+                                        <span class="text-sm text-slate-700">AI Triage</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">AI Engine</td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr class="bg-slate-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">#JHK-8885</td>
+                                <td class="px-6 py-4 text-sm font-medium text-brand-dark line-through text-slate-400">Broken wheelchair ramp at local PHC</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-200 text-gray-800">Accessibility</span></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Dhanbad</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="h-2 w-2 rounded-full bg-green-500 mr-2"></div>
+                                        <span class="text-sm text-slate-700 font-semibold">Verified Deploy</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Citizen Sign-off</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="mt-4 text-center">
+                <a href="dashboard_government.html" class="text-brand-primary font-semibold hover:underline text-sm">View Full 24-District Analytics Dashboard &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-slate-400 py-12 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fa-solid fa-seedling text-brand-accent text-xl"></i>
+                    <h1 class="font-bold text-white">Societal Innovation Portal</h1>
+                </div>
+                <p class="text-sm leading-relaxed mb-4">
+                    PS 26043 · Govt. of Jharkhand<br>
+                    Dept. of Higher & Technical Education
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Stakeholder Portals</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brand-accent transition">Citizen Reporter App</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">HEI / University Portal</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">CSR / Industry Funding Desk</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">District Admin Dashboard</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Tech Stack & Infrastructure</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>Offline PWA + Lightweight Android</li>
+                    <li>PostgreSQL/PostGIS Data Layer</li>
+                    <li>Microservices + AI NLP Workflow</li>
+                    <li>Built for BharatNet readiness</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-700 text-sm text-center">
+            &copy; 2026 SIH Project PS 26043. Concept Frontend.
+        </div>
+    </footer>
+
+</body>
+</html>
